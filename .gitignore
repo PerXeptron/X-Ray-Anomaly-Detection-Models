@@ -1,4 +1,5 @@
-xception-weights-final.h5
+NASNet-Mobile
+Pneumonia-Classifier-Xception
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
