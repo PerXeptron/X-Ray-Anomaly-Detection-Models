@@ -13,8 +13,15 @@ This repository is planned to host, the codes for refining the data set, buildin
 * The final aim is to compare all the models developed, and decide if the final model should be just one of the trained models or an ensemble.
 * Finalize the **model** for deployment into **RESTful APIs**.
 
+## An Illustration of a Model Pipeline Used (Xception)
 
-## How To Contribute ?
+![Xception Pipeline](img/XceptionPipeline.jpg)
+
+## An Illustration of the Final Ensemble
+
+![Ensemble](img/Ensemble.jpg)
+
+## How To Contribute?
 
 * First of all clone this repo(in case you haven't) :
   ```
