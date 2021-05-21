@@ -1,53 +1,35 @@
-# X-Ray Anomaly Detection Models
+<h1 align="center">X-Ray Anomaly Detection Models</h1>
 
-This repository is planned to host, the codes for refining the data set, building the models and fine tuning them to deliver accurate results in detecting anomalies in **Chest X-Rays**.
+This repository presents an ensemble based transfer learning approach for accurately classifying common thoracic diseases from Chest X-Rays (CXRs)
 
-## Detailed Aim Of This Repository
+## Dataset
+We use the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset for training and evaluation
 
-* Construct a preliminary *CNN* for deep learning from *Chest X-Rays* **(CXRs)**.
-* Experiment with a few *CXR datasets* to try to understand which one is optimal for the project. Considering computational limitations as well as accuracy targets determine which dataset will be used.
-* Select the dataset, and also decide whether the entire dataset will be required. If not, select the subset of data to be used.
-* Work on *image preprocessing* and *dataset refining*.
-* Try to replicate the performances of the ***state-of-the-art*** papers in **CheXpert competition** into working **Keras** or **PyTorch** models. 
-* Save models and document model performances.
-* The final aim is to compare all the models developed, and decide if the final model should be just one of the trained models or an ensemble.
-* Finalize the **model** for deployment into **RESTful APIs**.
+## Models
+The [final ensemble](Ensemble) consists of the following models
+- [DenseNet-121](DenseNet-121)
+- [DenseNet-169](DenseNet-169)
+- [DenseNet-201](DenseNet-201)
+- [Inception ResNet v2](Inception-ResNet-v2)
+- [Xception](Xception)
 
-## An Illustration of a Model Pipeline Used (Xception)
+The ensemble weights are found empirically while the disease-wise optimal prediction thresholds are found by maximizing the [Younden's J Statistic](https://en.wikipedia.org/wiki/Youden%27s_J_statistic)
 
-![Xception Pipeline](img/XceptionPipeline.jpg)
+## Results
+The ROC curves for each individual model and the final ensemble are located [here](ROC-Curves)  
+We achieve a mean area under the curve (AUC) of **0.915** on the validation set, that comes close to the SOTA of **0.94** (at the time of writing these models, i.e., May 2020)
 
-## An Illustration of the Final Ensemble
+## Illustration of a Model Pipeline Used
 
-![Ensemble](img/Ensemble.jpg)
+<p align="middle">
+  <img src="img/XceptionPipeline.jpg" width="60%"></img>
+</p>
 
-## How To Contribute?
+## Illustration of the Final Ensemble
 
-* First of all clone this repo(in case you haven't) :
-  ```
-  git clone https://github.com/PerXeptron/X-Ray-Anomaly-Detection-Models.git
-  cd X-Ray-Anomaly-Detection-Models
-  ```
-
-* Then create your own branch for developing stuff on your side :
-  ```
-  git branch <something-alongwith-your-username-would-be-preferable>
-  git checkout <branch-you-just-created>
-  ```
-
-* After *modification of existing files*/*addition of new files*, push your branch and open a *pull request* to the master branch so that everyone can review your code before you merge it to the master branch.
-  ```
-  git push origin <branch-you-had-created>
-  ```
-
-## Rules
-
-* **Don't commit directly to the master branch** *(please :p)*
-
-* **Create your own personal folders inside this repo for hosting your model development notebooks.**
+<p align="middle">
+  <img src="img/Ensemble.jpg" width="60%"></img>
+</p>
 
 ## Authors
-
-**sudoRicheek(Richeek)**, **hrshtv(Harshit)**, **praptikumar(Prapti)**, **ankitkmisra(Ankit)**.
-
-**May 2020.**
+[Harshit Varma](https://github.com/hrshtv), [Richeek Das](https://github.com/sudoRicheek), [Ankit Kumar Misra](https://github.com/ankitkmisra), [Prapti Kumar](https://github.com/praptikumar)
